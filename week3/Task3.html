@@ -1,0 +1,164 @@
+<html>
+  <head>
+    <style>
+    /* Write your code here */
+    body{
+      height: 100%;
+      background-image: url("background.png");
+    }
+    .container{
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+      margin-left: 30%;
+      margin-right: 30%;
+    }
+    .container header{
+      background-color: rgba(255,255,255,0.5);
+    }
+    .container header nav{
+      background-color: #b7b9bc;
+      text-align: center;
+    }
+    .container header nav a{
+      display: inline-block;
+      text-decoration: none;
+      color: black;
+      width: 25%;
+    }
+    .container header nav a.active{
+      background-color: red;
+      color: white;
+    }
+    .container header .logo_part{
+      background-color: rgba(255,255,255,0.1);
+    }
+    .container header .logo_part .search{
+      float: right;
+      width: 50%;
+      padding: 40px 0;
+    }
+    .container .main_section{
+      flex: 1 0 auto;
+      background-color: white;
+    }
+    .container .main_section .cards{
+      padding: 5px 0;
+      text-align: center;
+    }
+    .container .main_section .cards .card{
+      display: inline-block;
+      border: solid 1px red;
+      border-radius: 10px;
+      width: 150px;
+      text-align: center;
+      margin: 0 20px;
+      margin-bottom: 10px;
+    }
+    .container .main_section .cards .card .title{
+      display: block;
+      text-decoration: none;
+      color: white;
+      background-color: #639aed;
+      border-radius: 10px 10px 0 0;
+    }
+    .container .main_section .cards .card .price{
+      font-weight: bold;
+    }
+
+    .container footer{
+      flex: 0 0 auto;
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 15px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <header>
+      <nav>
+        <a href="#" class='active'>Home</a><a href="#">Contacts</a><a href="#">About us</a><a href="#">Comitee</a>
+      </nav>
+      <div class="logo_part">
+         <img src="http://via.placeholder.com/200x100"/>
+         <div class="search">
+           <input type="text"/>
+           <button>Search</button>
+         </div>
+      </div>
+    </header>
+
+    <section class="main_section">
+      <div class="cards">
+        <div class="card">
+          <a href="#" class="title">Toyota Avensis</a>
+            <img src="http://via.placeholder.com/150x150"/>
+          <div class="description">
+          
+          </div>
+          <div class="price">
+            50.000$
+          </div>
+        </div>
+        <div class="card">
+           <a href="#" class="title">Toyota Avensis</a>
+            <img src="http://via.placeholder.com/150x150"/>
+          <div class="description">
+          
+          </div>
+          <div class="price">
+            50.000$
+          </div>
+        </div>
+        <div class="card">
+          <a href="#" class="title">Toyota Avensis</a>
+            <img src="http://via.placeholder.com/150x150"/>
+          <div class="description">
+          
+          </div>
+          <div class="price">
+            50.000$
+          </div>
+        </div>
+        <div class="card">
+          <a href="#" class="title">Toyota Avensis</a>
+            <img src="http://via.placeholder.com/150x150"/>
+          <div class="description">
+          
+          </div>
+          <div class="price">
+            50.000$
+          </div>
+        </div>
+        <div class="card">
+          <a href="#" class="title">Toyota Avensis</a>
+            <img src="http://via.placeholder.com/150x150"/>
+          <div class="description">
+          
+          </div>
+          <div class="price">
+            50.000$
+          </div>
+        </div>
+        <div class="card">
+          <a href="#" class="title">Toyota Avensis</a>
+            <img src="http://via.placeholder.com/150x150"/>
+          <div class="description">
+          
+          </div>
+          <div class="price">
+            50.000$
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      @copy; 2017 Wheels.kz. All cars
+    </footer>
+    </div>
+  </body>
+</html>
