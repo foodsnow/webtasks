@@ -3,29 +3,31 @@
     <style>
     /* Write your code here */
     body{
-      height: 100%;
       background-image: url("background.png");
     }
     .container{
       height: 100%;
+      width: 40%;
       display: flex;
       flex-direction: column;
       font-size: 20px;
-      margin-left: 30%;
-      margin-right: 30%;
+      margin-left: auto;
+      margin-right: auto;
     }
     .container header{
       background-color: rgba(255,255,255,0.5);
     }
     .container header nav{
+      display: flex;
       background-color: #b7b9bc;
-      text-align: center;
+      align-content: stretch;
+      align-items: center;
     }
     .container header nav a{
-      display: inline-block;
+      text-align: center;
       text-decoration: none;
       color: black;
-      width: 25%;
+      flex-grow: 1;
     }
     .container header nav a.active{
       background-color: red;
@@ -36,14 +38,13 @@
     }
     .container header .logo_part .search{
       float: right;
-      width: 50%;
       padding: 40px 0;
     }
     .container .main_section{
-      flex: 1 0 auto;
-      background-color: white;
+      flex-grow: 1;
     }
     .container .main_section .cards{
+      background-color: white;
       padding: 5px 0;
       text-align: center;
     }
@@ -68,7 +69,6 @@
     }
 
     .container footer{
-      flex: 0 0 auto;
       background-color: black;
       color: white;
       text-align: center;

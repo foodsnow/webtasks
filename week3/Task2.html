@@ -3,20 +3,22 @@
     <style>
     body{
       font-family: sans-serif;
+      display: flex;
+      align-content: stretch;
     }
     /* Write your code here */
     .left_part{
-      float: left;
+      font-weight: bold;
+      flex-grow: 1;
+      display: flex;
       background-color: red;
       color: white;
-      width: 50%;
-      height: 50%;
-      padding-top: 15%;
       text-align: center;
+      flex-direction: column;
+      justify-content: center;
     }
     .right_part{
-      float: right;
-      width: 50%;
+      flex-grow: 1;
     }
     .right_part h3{
       text-align: center;
