@@ -51,15 +51,21 @@
       padding: 0 60px;
       border: solid 1px red;
     }
+    header nav a:hover{
+      background-color: red;
+    }
     section{
       text-align: center;
-      width: 50%;
+      width: 40%;
       margin-left: auto;
       margin-right: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
     }
     section .card{
-      margin: 20px 40px;
-      display: inline-block;
+      display: flex;
+      margin: 20px 0;
       border: solid 2px blue;
       border-radius: 5px;
       position: relative;
@@ -67,13 +73,13 @@
     section .card .title{
       font-weight: bold;
       color: white;
-      padding: 2px;
-      text-align: left;
+      padding: 1px;
       position: absolute;
-      top: 0;
       left: 0;
+      top: 0;
+      text-align: left;
       background-color: blue;
-      border-top-left-radius: 5px;
+      align-self: center;
     }
     section .card a .icon{
       background-color: white;
