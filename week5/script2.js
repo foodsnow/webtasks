@@ -1,10 +1,10 @@
 function changeImg(e){
-	var div = document.getElementById('bigImage');
-	div.getElementsByTagName('img')[0].src = e.currentTarget.src;
+	image = document.querySelector('#bigImage img');
+	image.src = e.currentTarget.src;
 	console.log("success");
 }
-var l = document.getElementsByTagName('img');
+let l = document.querySelectorAll('#carousel img');
 
-for (var i = 0; i < l.length; i++) {
-	l[i].addEventListener("click",changeImg,false);
+for (let i = 0; i < l.length; i++) {
+	l[i].addEventListener("click",changeImg);
 }

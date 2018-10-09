@@ -1,13 +1,13 @@
-document.getElementById('determinant').addEventListener("click",deter);
+document.querySelector('#determinant').addEventListener("click",deter);
 function deter(){
-	var x = [];
-	var y = ['s11','s12','s13','s21','s22','s23','s31','s32','s33'];
-	for (var i = 0; i < 9; i++) {
-		x[i] = document.getElementById(y[i]).value;
+	let list1 = document.querySelectorAll("input");
+	let list = [];
+	for(let i = 0; i < list1.length; i++){
+		list.push(parseInt(list1[i].value));
 	}
-	var determinant = x[0]*(x[4]*x[8]-x[5]*x[7])
-						-x[1]*(x[3]*x[8]-x[5]*x[6])
-						+x[2]*(x[3]*x[7]-x[4]*x[6]);
+	let determinant = list[0]*(list[4]*list[8]-list[5]*list[7])
+						-list[1]*(list[3]*list[8]-list[5]*list[6])
+						+list[2]*(list[3]*list[7]-list[4]*list[6]);
 	console.log(determinant);
-	document.getElementById("result").innerHTML = determinant.toString();
+	document.querySelector("#result").innerHTML = determinant.toString();
 }

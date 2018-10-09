@@ -1,44 +1,50 @@
 function addStudent(){
-	var studentName = document.getElementById('name').value;
-	var studentSurname = document.getElementById('surname').value;
-	var select = document.getElementById('faculty');
-	var faculty = select.options[select.selectedIndex].text;
+	let Name = document.querySelector('#name');
+	let Surname = document.querySelector('#surname');
+	let faculty = document.querySelector('#faculty');
 
-	if (studentSurname != "" && studentName != "" && select.selectedIndex != 0) {
-		var table = document.getElementById('students');
-		var row = table.insertRow();
-		var cell1 = row.insertCell(0);
-		var cell2 = row.insertCell(1);
-		var cell3 = row.insertCell(2);
-		cell3.setAttribute("style","font-weight: bold;");
+	let studentName = Name.value;
+	let studentSurname = Surname.value;
+	let index = faculty.selectedIndex;
+	let fac = faculty.options[index].text;
 
-		cell1.innerHTML = studentName;
-		cell2.innerHTML = studentSurname;
-		cell3.innerHTML = faculty;
+	if (studentSurname != "" && studentName != "" && index != 0) {
+		let table = document.querySelector('#students');
+		let row = table.insertRow();
+		let cell1 = row.insertCell(0);
+		let cell2 = row.insertCell(1);
+		let cell3 = row.insertCell(2);
 
-		document.getElementById('name').value = '';
-		document.getElementById('surname').value = '';
-		document.getElementById('faculty').value = -1;
+		let str = document.createElement('strong');
+		str.textContent = fac;
+
+		cell1.textContent = studentName;
+		cell2.textContent = studentSurname;
+		cell3.appendChild(str);
+
+		Name.value = '';
+		Surname.value = '';
+		faculty.value = -1;
 	}
 	else{
-		if (studentName == "") {
-			document.getElementById('name').className = "error";
+		if (studentName === "") {
+			Name.classList.add("error");
 		}
-		if (studentSurname == "") {
-			document.getElementById('surname').className = "error";
+		if (studentSurname === "") {
+			Surname.classList.add("error");;
 		}
-		if (select.selectedIndex == 0) {
-			document.getElementById('faculty').className = "error";
+		if (index == 0) {
+			faculty.classList.add("error");;
 		}
 	}
 }
 
 function clear(){
-	this.className = "";
+	this.classList.remove("error");
 }
 
-var button = document.getElementById('addStudent');
+var button = document.querySelector('#addStudent');
 button.addEventListener("click",addStudent);
-document.getElementById('name').addEventListener("focus",clear);
-document.getElementById('surname').addEventListener("focus",clear);
-document.getElementById('faculty').addEventListener("focus",clear);
+document.querySelector('#name').addEventListener("focus",clear);
+document.querySelector('#surname').addEventListener("focus",clear);
+document.querySelector('#faculty').addEventListener("focus",clear);
