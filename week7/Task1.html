@@ -1,0 +1,52 @@
+<html>
+	<head>
+	<style>
+	#news{
+		border:1px solid red;
+		width:400px;
+		height:300px;
+	}
+	</style>
+	</head>
+	<body>
+
+	<div id="news"></div>
+		<button id="sport">Load Sport news</button>
+		<button id="politics">Load Politics news</button>
+		<button id="bussiness">Load Bussiness news</button>
+	<script>
+	/* Write your code here */
+	function doStream(data){
+		let news = document.querySelector("#news");
+		console.log(data);
+		news.innerHTML = data;
+	}
+
+	function onSuccess(response){
+		response.text().then(doStream);
+	}
+
+	function onError(response){
+		console.log("Error");
+	}
+
+	function load1(){
+		fetch("http://demo4296963.mockable.io/news-sport").then(onSuccess,onError);
+	}
+	function load2(){
+		fetch("http://demo4296963.mockable.io/news-politics").then(onSuccess,onError);
+	}
+	function load3(){
+		fetch("http://demo4296963.mockable.io/news-bussiness").then(onSuccess,onError);
+	}
+
+	let sport = document.querySelector("#sport");
+	let politics = document.querySelector("#politics");
+	let bussiness = document.querySelector("#bussiness");
+
+	sport.addEventListener("click", load1);
+	politics.addEventListener("click", load2);
+	bussiness.addEventListener("click", load3);
+	</script>
+	</body>
+</html>

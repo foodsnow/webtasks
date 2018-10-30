@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <style>
+      #cards .card{
+        border:1px solid red;
+        display:flex;
+        width:300px;
+      }
+      #cards .card .title{
+        flex-grow: 1;
+      }
+      #cards .card .price{
+        font-weight: bold;
+        padding-right: 20px;
+      }
+      #loading{
+        display: none;
+      }
+      #cards{
+        width:300px;
+        height:200px;
+        border: 1px solid blue;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <button>Load</button>
+    <div>
+      <button id="sortByMaker">Sort by maker</button>
+      <button id="sortByPrice">Sort by price</button>
+    </div>
+    <div id="cards">
+      <img width="300px" height="200px" id="loading" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/>
+    </div>
+
+
+    <script defer>
+    var loading = document.querySelector("#loading");
+    var cars = []
+
+    function onSuccess(response){
+      response.json().then( (data) => {
+        loading.style.display = "none";
+        let cards = document.querySelector("#cards");
+        data.forEach((card) => {
+          let div = document.createElement("div");
+          div.classList.add("card");
+
+          let title = document.createElement("a");
+          title.classList.add("title");
+          title.textContent = card.maker + " " + card.model;
+
+          let price = document.createElement("div");
+          price.textContent = card.price;
+          price.classList.add("price");
+
+          div.appendChild(title);
+          div.appendChild(price);
+
+          cars.push(div);
+
+          cards.appendChild(div);
+        })
+      });
+    }
+
+    function onError(error){
+      console.log(error);
+    }
+
+    function load(){
+      loading.style.display = "block";
+      fetch("http://demo4296963.mockable.io/listCars").then(onSuccess, onError);
+    }
+
+    function sortByMaker(a,b){
+        let first = a.querySelector(".title").textContent;
+        let second = b.querySelector(".title").textContent;
+        if(first > second){return 1;}
+        if(first < second){return -1;}
+        else {return 0;}
+    }
+    function sortByPrice(a,b){
+      return parseInt(a.querySelector(".price").textContent) - parseInt(b.querySelector(".price").textContent);
+    }
+    function showByMaker(){
+      cars.sort(sortByMaker);
+      let cards = document.querySelectorAll("#cards .card");
+      let all_cars = document.querySelector("#cards");
+      console.log(cards);
+      console.log(cards[0]);
+
+      for(let card of cards){
+        card.remove();
+      }
+      for(let car of cars){
+        all_cars.appendChild(car);
+      }
+    }
+    function showByPrice(){
+      cars.sort(sortByPrice);
+      let cards = document.querySelectorAll("#cards .card");
+      let all_cars = document.querySelector("#cards");
+
+      for(let card of cards){
+        card.remove();
+      }
+      for(let car of cars){
+        all_cars.appendChild(car);
+      }
+    }
+
+    document.querySelector("button").addEventListener("click", load);
+    document.querySelector("#sortByMaker").addEventListener("click", showByMaker);
+    document.querySelector("#sortByPrice").addEventListener("click", showByPrice);
+    </script>
+  </body>
+
+</html>
